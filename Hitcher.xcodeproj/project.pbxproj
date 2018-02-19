@@ -30,6 +30,7 @@
 		8D8D7BE62032DCF800F57D24 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D8D7BE52032DCF800F57D24 /* GoogleService-Info.plist */; };
 		8D8D7BE92032DE4200F57D24 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8D7BE82032DE4200F57D24 /* DataService.swift */; };
 		8D9F1AAA202ED1F200FF82F9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F1AA9202ED1F200FF82F9 /* GradientView.swift */; };
+		8DF09A922039AEA700886FD4 /* PathManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF09A912039AEA700886FD4 /* PathManager.swift */; };
 		F0EE0B2890A94126137E7756 /* Pods_Hitcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBDC7494C9B49C16C21910 /* Pods_Hitcher.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +47,7 @@
 		8D257B49202EC5730040816E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D257B4C202EC5730040816E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D257B4E202EC5730040816E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D257B54202EC7A20040816E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		8D257B54202EC7A20040816E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8D65471A2035733E00B03FE8 /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		8D65471C2035765300B03FE8 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Session.swift; path = Hitcher/Services/Session.swift; sourceTree = SOURCE_ROOT; };
 		8D65471E2035792100B03FE8 /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		8D8D7BE52032DCF800F57D24 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8D8D7BE82032DE4200F57D24 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8D9F1AA9202ED1F200FF82F9 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		8DF09A912039AEA700886FD4 /* PathManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		8D257B41202EC5730040816E /* Hitcher */ = {
 			isa = PBXGroup;
 			children = (
+				8DF09A902039AE9C00886FD4 /* Manager */,
 				8D8D7BE72032DE2900F57D24 /* Services */,
 				8D8D7BDC2032BDC900F57D24 /* Extension */,
 				8D1053FE20303A160063FCC0 /* Protocol */,
@@ -180,6 +183,14 @@
 				8D65471E2035792100B03FE8 /* DriverAnnotation.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8DF09A902039AE9C00886FD4 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8DF09A912039AEA700886FD4 /* PathManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		BAB6BA0A6D6F45C41A722160 /* Frameworks */ = {
@@ -345,6 +356,7 @@
 				8D1053FD2030382F0063FCC0 /* ContainerViewController.swift in Sources */,
 				8D8D7BE22032C84D00F57D24 /* LoginViewController.swift in Sources */,
 				8D8D7BE42032C91500F57D24 /* RoundedCornerTextField.swift in Sources */,
+				8DF09A922039AEA700886FD4 /* PathManager.swift in Sources */,
 				8D65471F2035792100B03FE8 /* DriverAnnotation.swift in Sources */,
 				8D9F1AAA202ED1F200FF82F9 /* GradientView.swift in Sources */,
 			);

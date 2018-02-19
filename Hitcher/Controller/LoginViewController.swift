@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         let userData = ["provider" : user.providerID]
                         DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
                     } else {
-                        let userData: [String : Any] = ["provider" : user.providerID, "userIsDriver" : true, "isPickupModeEnabled" : false, "driverIsOnTrip" : false]
+                        let userData: [String : Any] = ["provider" : user.providerID, "userIsDriver" : true, PathManager.Path.isPickUpModeEnabled.rawValue : false, "driverIsOnTrip" : false]
                         DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
                     }
                     print("Email user authenticated")
@@ -81,7 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let userData = ["provider" : user.providerID]
                     DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
                 } else {
-                    let userData: [String : Any] = ["provider" : user.providerID, "userIsDriver" : true, "isPickupModeEnabled" : false, "driverIsOnTrip" : false]
+                    let userData: [String : Any] = ["provider" : user.providerID, "userIsDriver" : true, PathManager.Path.isPickUpModeEnabled.rawValue : false, "driverIsOnTrip" : false]
                     DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
                 }
                 print("Succesfully created a new user")

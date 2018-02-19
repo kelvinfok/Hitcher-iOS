@@ -29,7 +29,7 @@ class PanelViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupInitialViews()
-        observerPassengersAndDrivers()
+        observePassengersAndDrivers()
     }
     
     func setupInitialViews() {
@@ -59,19 +59,7 @@ class PanelViewController: UIViewController {
         signUpLoginButton.setTitle("Logout", for: .normal)
     }
     
-    func observerPassengersAndDrivers() {
-        
-        DataService.instance.REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
-            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
-                for snapshot in snapshots {
-                    if snapshot.key == Auth.auth().currentUser?.uid {
-                        Session.instance.userType = .PASSENGER
-                        print("is passenger")
-                        self.accountTypeLabel.text = "Passenger"
-                    }
-                }
-            }
-        }
+    func observePassengersAndDrivers() {
         
         DataService.instance.REF_DRIVERS.observeSingleEvent(of: .value) { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -81,9 +69,21 @@ class PanelViewController: UIViewController {
                         Session.instance.userType = .DRIVER
                         self.accountTypeLabel.text = "Driver"
                         self.pickUpModeSwitch.isHidden = false
-                        let switchStatus = snapshot.childSnapshot(forPath: "isPickupModeEnabled").value as! Bool
+                        let switchStatus = snapshot.childSnapshot(forPath: PathManager.Path.isPickUpModeEnabled.rawValue).value as! Bool
                         self.pickUpModeSwitch.isOn = switchStatus
                         self.pickUpModeLabel.isHidden = false
+                    }
+                }
+            }
+        }
+        
+        DataService.instance.REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                for snapshot in snapshots {
+                    if snapshot.key == Auth.auth().currentUser?.uid {
+                        Session.instance.userType = .PASSENGER
+                        print("is passenger")
+                        self.accountTypeLabel.text = "Passenger"
                     }
                 }
             }
@@ -108,24 +108,13 @@ class PanelViewController: UIViewController {
         if pickUpModeSwitch.isOn {
             pickUpModeLabel.text = "Pickup Mode Enabled"
             appDelegate.containerViewController.toggleLeftPanel()
-            let dictionary = ["isPickupModeEnabled" : true]
+            let dictionary = [PathManager.Path.isPickUpModeEnabled.rawValue : true]
             DataService.instance.REF_DRIVERS.child(self.currentUser!.uid).updateChildValues(dictionary)
         } else {
             pickUpModeLabel.text = "Pickup Mode Disabled"
             appDelegate.containerViewController.toggleLeftPanel()
-            let dictionary = ["isPickupModeEnabled" : false]
+            let dictionary = [PathManager.Path.isPickUpModeEnabled.rawValue : false]
             DataService.instance.REF_DRIVERS.child(self.currentUser!.uid).updateChildValues(dictionary)
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
